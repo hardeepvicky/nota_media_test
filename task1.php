@@ -1,6 +1,6 @@
 <?php
 
-include_once('functions.php');
+require_once('functions.php');
 
 $regex_pattern_for_latin = '/\p{Latin}+/';
 $regex_pattern_for_number = '/\d+/';

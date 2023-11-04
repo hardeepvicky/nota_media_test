@@ -1,12 +1,21 @@
 <?php
 
-function dump($array)
+function dump($arg)
 {
     $callBy = debug_backtrace()[0];
     echo "<pre>";
     echo "<b>" . $callBy['file'] . "</b> At Line : " . $callBy['line'];
     echo "<br/>";
-    print_r($array);
+    
+    if (is_string($arg))
+    {
+        echo htmlspecialchars($arg);
+    }
+    else
+    {
+        print_r($arg);
+    }
+    
     echo "</pre>";
 }
 
@@ -28,4 +37,29 @@ function get_files_in_folder($path, $exts = array(), $recursive = false)
     }
 
     return $ret_files;
+}
+
+function get_random_string($length)
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[random_int(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+function get_random_date_time()
+{
+    $int= mt_rand(1262055681,1262055681);
+
+    $string = date("Y-m-d H:i:s",$int);
+
+    return $string;
+}
+
+function DOMDocument_get_html_from_tag(DOMDocument $dom)
+{
+    
 }
