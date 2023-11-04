@@ -58,8 +58,3 @@ function get_random_date_time()
 
     return $string;
 }
-
-function DOMDocument_get_html_from_tag(DOMDocument $dom)
-{
-    
-}
