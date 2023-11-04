@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+
+    <style>
+        section{            
+            border: 1px solid;            
+            padding: 20px;        
+        }
+
+        button{            
+            display: block;            
+            padding: 10px;
+        }
+    </style>
+
+    <script src="jquery/jquery.min.js"></script>
+</head>
+<body>
+    <section>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+    </section>
+
+    <script>
+        $(function(){
+            $("button").click(function(){
+
+                var index = $(this).index();
+
+                console.log(index);
+
+                if (index == 0)
+                {
+                    var next_button = $("section button").eq(index + 1);
+
+                    console.log($(next_button));
+                    
+                    $(this).insertAfter(next_button);
+                    
+                    
+                }
+                else
+                {
+                    var prev_button = $("section button").eq(index - 1);
+
+                    console.log($(prev_button));
+                    
+                    $(this).insertBefore(prev_button);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
